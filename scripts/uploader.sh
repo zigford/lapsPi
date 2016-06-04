@@ -20,7 +20,7 @@ if [ ! $1 == "" ] ; then
 else
     /home/pi/scripts/net-config.sh start
     if [ $? == 0 ] ; then
-    	find /home/pi/Pictures -name *.jpg -exec $0 {} \;
+    	find /home/pi/Pictures/*.jpg -exec $0 {} \;
     fi
     /home/pi/scripts/net-config.sh stop
 fi
