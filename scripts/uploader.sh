@@ -10,8 +10,6 @@ fi
 
 if [ ! $1 == "" ] ; then
     echo Uploading $1
-    #DIR=$(echo $1 |awk -F '/' '{print $5}')
-    #ssh pi@${jessepi} mkdir /home/pi/pics/${DIR} 2>/dev/null
     scp $1 pi@${jessepi}:/home/pi/Pictures/
     if [ $? == 0 ] ; then
         echo upload $1 succesfull. Deleting
@@ -20,12 +18,12 @@ if [ ! $1 == "" ] ; then
         echo upload of $1 failed
     fi
 else
-    if /home/pi/scripts/net-config.sh start; then
+    if /home/pi/lapsPi/scripts/net-config.sh start; then
         if [ $? == 0 ] ; then
     	    find /home/pi/Pictures/*.jpg -exec $0 {} \;
         fi
     else
 	echo Could not connect to the network
     fi
-    /home/pi/scripts/net-config.sh stop
+    /home/pi/lapsPi/scripts/net-config.sh stop
 fi
