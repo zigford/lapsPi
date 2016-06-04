@@ -21,6 +21,7 @@ NetworkPowerOff () {
     #Could not start internet. Save power.
     #Before network power off, lets check if Wifi is available and if so, assume mains power
     if ifconfig wlan0 ; then
+	echo connected via wifi
 	exit 0
     fi	 
     sudo killall wvdial
@@ -51,11 +52,6 @@ NetworkTest () {
         return 1
     fi
 }
-
-if ifconfig wlan0; then
-    echo "Running on wifi"
-    exit 0
-fi
 
 if [ "$1" = "start" ] ; then
     NetworkPowerOn
