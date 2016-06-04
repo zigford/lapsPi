@@ -275,7 +275,7 @@ class timelapse:
             self.socket.send(command)
 
             #Take a picture.
-            filename='/home/pi/pictures/'+self.hostname+'_'+dtime+'.jpg'
+            filename='/home/pi/Pictures/'+self.hostname+'_'+dtime+'.jpg'
             self.shoot(filename=filename)
 
             loopend=time.time()
