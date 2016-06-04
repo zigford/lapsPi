@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo $(date)
+
 if ifconfig wlan0 &>/dev/null; then
     jessepi=10.1.1.3
 else
@@ -18,9 +20,12 @@ if [ ! $1 == "" ] ; then
         echo upload of $1 failed
     fi
 else
-    /home/pi/scripts/net-config.sh start
-    if [ $? == 0 ] ; then
-    	find /home/pi/Pictures/*.jpg -exec $0 {} \;
+    if /home/pi/scripts/net-config.sh start; then
+        if [ $? == 0 ] ; then
+    	    find /home/pi/Pictures/*.jpg -exec $0 {} \;
+        fi
+    else
+	echo Could not connect to the network
     fi
     /home/pi/scripts/net-config.sh stop
 fi

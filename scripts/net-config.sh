@@ -8,9 +8,13 @@ NetworkPowerOn () {
     sudo /usr/bin/usb-hub on
     #Start network stack
     sudo service networking start
-    sleep 1m
+    sleep 3m
     #Start 3g connection
-    sudo wvdial telstra3g &
+    if ifconfig wlan0; then
+	echo connected via wifi
+    else
+    	sudo wvdial telstra3g &
+    fi
 }
 
 NetworkPowerOff () {
@@ -23,7 +27,7 @@ NetworkPowerOff () {
 }
 
 NetworkTest () {
-    ((count = 100))                        # Maximum number to try.
+    ((count = 10))                        # Maximum number to try.
     while [[ $count -ne 0 ]] ; do
         sleep 5s
         ping -c 1 8.8.8.8                    # Try once.
@@ -36,6 +40,8 @@ NetworkTest () {
 
     if [[ $rc -eq 0 ]] ; then              # Make final determination.
         sudo ntpdate -s 0.au.pool.ntp.org
+	cd ~/lapsPi
+	git pull
         return 0
     else
         return 1
@@ -49,7 +55,13 @@ fi
 
 if [ "$1" = "start" ] ; then
     NetworkPowerOn
-    NetworkTest
+    if NetworkTest; then
+	echo Succesfully connected to the network
+	return 0
+    else
+	echo Failed to connect. Aborting...
+	return 1
+    fi
 elif [ "$1" = "stop" ] ; then
     NetworkPowerOff
 elif [ "$1" = "test" ] ; then
