@@ -63,10 +63,10 @@ if [ "$1" = "start" ] ; then
     NetworkPowerOn
     if NetworkTest; then
 	echo Succesfully connected to the network
-	return 0
+	exit 0
     else
 	echo Failed to connect. Aborting...
-	return 1
+	exit 1
     fi
 elif [ "$1" = "stop" ] ; then
     NetworkPowerOff
