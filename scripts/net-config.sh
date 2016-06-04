@@ -8,12 +8,16 @@ NetworkPowerOn () {
     sudo /usr/bin/usb-hub on
     #Start network stack
     sudo service networking start
-    sleep 3m
     #Start 3g connection
     if ifconfig wlan0; then
 	echo connected via wifi
     else
-    	sudo wvdial telstra3g &
+        sleep 3m
+        if ifconfig wlan0; then
+	    echo connected via wifi
+	else
+    	    sudo wvdial telstra3g &
+	fi
     fi
 }
 
