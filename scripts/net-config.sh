@@ -51,6 +51,7 @@ NetworkTest () {
         sudo ntpdate -s 0.au.pool.ntp.org
 	cd ~/lapsPi
 	git pull
+	crontab /home/pi/lapsPi/scripts/crontab
         return 0
     else
         return 1
