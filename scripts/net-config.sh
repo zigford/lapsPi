@@ -52,7 +52,7 @@ NetworkTest () {
 	cd ~/lapsPi
 	git pull
 	crontab /home/pi/lapsPi/scripts/crontab
-	sudo cp -f superscript /etc/init.d/superscript
+	sudo cp -f /home/pi/lapsPi/scripts/superscript /etc/init.d/superscript
         return 0
     else
         return 1
