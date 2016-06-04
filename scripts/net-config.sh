@@ -42,7 +42,7 @@ NetworkTest () {
     fi
 }
 
-if ifconfig wlan0 &>/dev/null; then
+if ifconfig wlan0; then
     echo "Running on wifi"
     exit 0
 fi
