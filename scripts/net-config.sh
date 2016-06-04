@@ -19,6 +19,10 @@ NetworkPowerOn () {
 
 NetworkPowerOff () {
     #Could not start internet. Save power.
+    #Before network power off, lets check if Wifi is available and if so, assume mains power
+    if ifconfig wlan0 ; then
+	exit 0
+    fi	 
     sudo killall wvdial
     sudo service networking stop
     sudo sh -c 'echo 0x0 > /sys/devices/platform/soc/20980000.usb/buspower'
