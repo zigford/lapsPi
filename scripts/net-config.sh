@@ -9,11 +9,11 @@ NetworkPowerOn () {
     #Start network stack
     sudo service networking start
     #Start 3g connection
-    if ifconfig wlan0; then
+    if /sbin/ifconfig wlan0; then
 	echo connected via wifi
     else
         sleep 3m
-        if ifconfig wlan0; then
+        if /sbin/ifconfig wlan0; then
 	    echo connected via wifi
 	else
     	    sudo wvdial telstra3g &
@@ -24,7 +24,7 @@ NetworkPowerOn () {
 NetworkPowerOff () {
     #Could not start internet. Save power.
     #Before network power off, lets check if Wifi is available and if so, assume mains power
-    if ifconfig wlan0 ; then
+    if /sbin/ifconfig wlan0 ; then
 	echo connected via wifi
 	exit 0
     fi	 
