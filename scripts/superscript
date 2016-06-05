@@ -4,6 +4,6 @@
 /opt/vc/bin/tvservice -o
 sleep 2m
 service ntp stop
-/home/pi/scripts/net-config.sh start
+/home/pi/lapsPi/scripts/net-config.sh start
 sleep 30s
-/home/pi/scripts/net-config.sh stop
+/home/pi/lapsPi/scripts/net-config.sh stop
