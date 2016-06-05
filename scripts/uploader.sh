@@ -2,7 +2,7 @@
 
 echo $(date)
 
-if ifconfig wlan0 &>/dev/null; then
+if /sbin/ifconfig wlan0 &>/dev/null; then
     jessepi=10.1.1.3
 else
     jessepi=zigford.ddns.net
