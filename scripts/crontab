@@ -21,5 +21,5 @@
 # 
 # m h  dom mon dow   command
 0,5,10,15,20,25,30,35,40,45,50,55 6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 * * 1,2,3,4,5,6,7 /home/pi/lapsPi/scripts/pictaker.sh
-5,15,40,45 7,8,9,10,11,12,13,14,15,16,17,18,19,20 * * 1,2,3,4,5,6,7 /home/pi/lapsPi/scripts/uploader.sh >> /home/pi/uploader.log
+5,15,40,45,55 7,8,9,10,11,12,13,14,15,16,17,18,19,20 * * 1,2,3,4,5,6,7 /home/pi/lapsPi/scripts/uploader.sh >> /home/pi/uploader.log
 
