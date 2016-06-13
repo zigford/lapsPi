@@ -307,7 +307,7 @@ class timelapse:
         while True:
             command = socket.recv()
             command=command.split(" ")
-            print "Message recieved: " + str(command)
+            print "Message received: " + str(command)
             if command[1]=="quit":
                 break
             elif command[1]=="shoot":
