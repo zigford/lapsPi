@@ -62,7 +62,7 @@ NetworkTest () {
 if [ "$1" = "start" ] ; then
     NetworkPowerOn
     if NetworkTest; then
-	echo Succesfully connected to the network
+	echo Successfully connected to the network
 	exit 0
     else
 	echo Failed to connect. Aborting...
