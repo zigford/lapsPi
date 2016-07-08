@@ -7,7 +7,7 @@ NetworkPowerOn () {
     #   Power on Relay
     sudo /usr/bin/usb-hub on
     #Start network stack
-    sudo service networking start
+#    sudo service networking start
     #Start 3g connection
     if /sbin/ifconfig wlan0; then
 	echo connected via wifi
@@ -29,9 +29,9 @@ NetworkPowerOff () {
 	exit 0
     fi	 
     sudo killall wvdial
-    sudo service networking stop
-    sudo sh -c 'echo 0x0 > /sys/devices/platform/soc/20980000.usb/buspower'
-    sudo /usr/bin/usb-hub off
+#    sudo service networking stop
+#    sudo sh -c 'echo 0x0 > /sys/devices/platform/soc/20980000.usb/buspower'
+#    sudo /usr/bin/usb-hub off
     echo stop net
 }
 
