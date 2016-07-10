@@ -29,6 +29,7 @@ NetworkPowerOff () {
 	exit 0
     fi	 
     sudo killall wvdial
+    sudo killall pppd
 #    sudo service networking stop
 #    sudo sh -c 'echo 0x0 > /sys/devices/platform/soc/20980000.usb/buspower'
 #    sudo /usr/bin/usb-hub off
