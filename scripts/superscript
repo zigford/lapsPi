@@ -3,7 +3,5 @@
 /usr/bin/usb-hub on
 sleep 2m
 #/opt/vc/bin/tvservice -o
-service ntp stop
+#service ntp stop
 /home/pi/lapsPi/scripts/net-config.sh start
-sleep 30s
-/home/pi/lapsPi/scripts/net-config.sh stop
