@@ -12,12 +12,8 @@ NetworkPowerOn () {
     if /sbin/ifconfig wlan0; then
 	echo connected via wifi
     else
-        sleep 3m
-        if /sbin/ifconfig wlan0; then
-	    echo connected via wifi
-	else
     	    sudo wvdial telstra3g &
-	fi
+
     fi
 }
 
