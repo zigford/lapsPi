@@ -12,7 +12,7 @@ NetworkPowerOn () {
     if /sbin/ifconfig wlan0; then
 	echo connected via wifi
     else
-	/usr/bin/pgrep -f wvdial || sudo /usr/bin/nohup /usr/bin/wvdial telstra3g
+	/usr/bin/pgrep -f wvdial || sudo /usr/bin/nohup /usr/bin/wvdial telstra3g &
     fi
 }
 
