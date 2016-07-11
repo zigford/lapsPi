@@ -25,5 +25,4 @@ else
     else
 	echo Could not connect to the network
     fi
-    /home/pi/lapsPi/scripts/net-config.sh stop
 fi

@@ -7,13 +7,12 @@ NetworkPowerOn () {
     #   Power on Relay
     sudo /usr/bin/usb-hub on
     #Start network stack
-#    sudo service networking start
+    #sudo service networking start
     #Start 3g connection
     if /sbin/ifconfig wlan0; then
 	echo connected via wifi
     else
-    	    sudo wvdial telstra3g &
-
+	/usr/bin/pgrep -f wvdial || sudo /usr/bin/nohup /usr/bin/wvdial telstra3g
     fi
 }
 
@@ -45,7 +44,6 @@ NetworkTest () {
     done
 
     if [[ $rc -eq 0 ]] ; then              # Make final determination.
-        sudo ntpdate -s 0.au.pool.ntp.org
 	cd ~/lapsPi
 	git pull
 	crontab /home/pi/lapsPi/scripts/crontab
